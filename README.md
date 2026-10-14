@@ -16,6 +16,9 @@ python serve.py
 
 ## 功能
 
+- 新增独立 **leecode题库** 模块：2026-10-14 核对的官方全量目录，共 4,470 道题、176 个主题；包括 3,684 道免费题和 786 道会员题，以及 LCP、LCR、面试题等系列。
+- 全量题库支持中文 / 英文标题、题号和主题搜索，难度、主题、免费 / 会员、收藏、练习方式筛选；支持排序、每页数量、分页及页码跳转。
+- 已适配的 101 道题复用现有 ACM 题面、解法和用例；其他题目提供 Python 自定义标准输入输出工作台、可选期望输出比较、草稿、笔记与收藏，并链接官方原题。全量目录不等于所有题目已完成 ACM 改编；未内置用例的题目不会自动判为已通过。
 - 完整 LeetCode Hot 100，按官方题单的 17 个主题组织；另保留二分查找 #704 作为补充题。支持切换 Hot 100、全部题目与补充题。
 - 100 道题均有独立编写的 ACM 改编题面、输入输出约定、Python 参考解法、解题提示、复杂度说明和至少 3 个验证用例。
 - Python 标准输入输出模板、参考题解、样例输入和自定义输入。
@@ -27,6 +30,8 @@ python serve.py
 - 桌面分栏与手机单栏布局；键盘 Tab 缩进、Ctrl/⌘ + Enter 运行。
 
 ## GitHub Pages 部署
+
+在线网站：[拾码](https://lsy18359897125-star.github.io/my_project/)，全量目录入口：[leecode题库](https://lsy18359897125-star.github.io/my_project/#leetcode)。
 
 目标仓库：`https://github.com/lsy18359897125-star/my_project`。
 
@@ -52,6 +57,8 @@ git push -u origin main
 这组命令仅适用于空仓库。已有仓库应先 clone 后合并应用文件。
 
 ## 校验与构建
+
+全量题库元数据保存于 `src/leetcode-catalog.json`，页面按需加载，分页渲染。更新公开目录可运行 `node scripts/update-catalog.mjs`（需要联网），成功取齐并校验后才替换快照；随后提交源文件，由 Pages 工作流发布。脚本只读取官方公开目录元数据，不抓取题面、题解或用户数据。会员题的题面仍由官方控制访问。
 
 ```powershell
 node --test tests/*.test.mjs
